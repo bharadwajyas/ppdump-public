@@ -1,5 +1,7 @@
 ## About
 
+The bug that I abuse  goes to [@Dark_Puzzle](https://twitter.com/Dark_Puzzle) whom disclosed [here](http://rce4fun.blogspot.com/2018/02/malwarefox-antimalware-zam64sys.html) the privileged registration with Zemana AntiMalware. I only expanded upon this to use an additional IOCTL to open a thread with FULL_ACCESS (but still with some limitations!).
+
 Protected Process (Light) on the latest iterations of Microsoft Windows has become the bane of most attackers - it prevents tools such as Mimikatz from obtaining a privileged handle to critical processes such as lsass, winlogon, and crss, all of which control the Microsoft kernel in various ways. As such, I studied various means of attacking the kernel and discovered one particular way which succeeded - using a stolen kernel driver to open a privileged handle the process and its underlying threads.
 
 Using these privileged handles, I was able to successfully "APC Bomb" each individual threads until it reached an altertable state by using QueueUserAPC, and Stomping / Resuming the threads a multitude of times. 
