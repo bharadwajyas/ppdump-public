@@ -59,4 +59,4 @@ beacon> ppdump 820
 ```
 
 ## Bugs
-**NOTE**: Please do not run multiple instances of the ppdump command - wait until one has completed before running another. This is because only one driver can be loaded at a time - so if two are loaded at the same time, the process tends to break quiet quickly. Furthermore some of the threads will lock up during the injection process.
+**NOTE**: Please do not run multiple instances of the ppdump command - wait until one has completed before running another. This is because only one driver can be loaded at a time - so if two are loaded at the same time, the process tends to break quiet quickly. Furthermore some of the threads will lock up during the injection process if you run too many of the DLL at the same time.
