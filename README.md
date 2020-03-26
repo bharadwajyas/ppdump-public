@@ -58,7 +58,5 @@ beacon> ppdump 820
 [ ] deleted service tiGr4.sys successfully
 ```
 
-![](https://gitlab.guidepointsecurity.com/austin-hudson/ppdump/blob/master/ppldump_x64_proof_apc_bomb.png)
-
 ## Bugs
 **NOTE**: Please do not run multiple instances of the ppdump command - wait until one has completed before running another. This is because only one driver can be loaded at a time - so if two are loaded at the same time, the process tends to break quiet quickly. Furthermore some of the threads will lock up during the injection process.
