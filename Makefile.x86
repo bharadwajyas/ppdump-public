@@ -1,0 +1,15 @@
+COMPILER_PREFIX := i686-w64-mingw32-
+CC              := $(COMPILER_PREFIX)gcc
+CFLAGS          := -shared -s
+LFLAGS          := -ldbghelp -lntdll
+INCLUDES        := -Isrc/ -Isrc/ldr/ -Isrc/drvs/
+
+ppdump.x86.dll:
+	cp -rf src/drvs/zam.x86.h src/zam.x86.h
+	cp -rf src/shellcode/payload.x86.h src/payload.x86.h
+	$(CC) $(CFLAGS) $(LFLAGS) src/*.c src/ldr/*.c -o $@
+
+clean:
+	rm -rf ppdump.x86.dll
+	rm -rf src/zam.x86.h
+	rm -rf src/payload.x86.h
